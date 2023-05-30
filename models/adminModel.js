@@ -6,4 +6,4 @@ const adminSchema = new mongoose.Schema({
     isAdmin:{type: Boolean, default: true}
 })
 
-mosdule.exports = mongoose.model('Admin', adminSchema);
+module.exports = mongoose.model('Admin', adminSchema);

@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-const url = 'mongodb://localhost:27017/hospitalRecord';
+const url = 'mongodb://127.0.0.1:27017/hospitalRecord';
 
 mongoose.set('strictQuery', true);
+
 const connectDB = async()=>{
 
     try{
@@ -9,7 +10,9 @@ const connectDB = async()=>{
             useUnifiedTopology : true,
             useNewUrlParser:true
         });
-    }catch(err){
+    }catch(err){ss
         console.log(err)
     }
 }
+
+module.exports = connectDB;
