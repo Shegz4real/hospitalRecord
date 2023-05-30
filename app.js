@@ -15,7 +15,7 @@ const pharm = require("./routes/pharm/pharmRoute");
 
 
 app.get('/', (req, res)=>{
-    res.send("running");
+    res.send("user login");
 });
 
 mongoose.connection.once('open', ()=>{
