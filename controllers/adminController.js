@@ -9,6 +9,7 @@ const Doc = require('../models/docModel');
 const Lab = require('../models/labModel');
 const Pharm = require('../models/pharmModel');
 const Records = require('../models/recordModel');
+const patient = require('../models/patientModel');
 
 
 
@@ -20,17 +21,22 @@ exports.signupUser = async(req, res)=>{
         if( req.body.user == "doctor"){
             const doc = new Doc(req.body);
             await doc.save();
+            req.session.userId = doc._id;
+            req.session.authorized = true;
             res.redirect('/dashboard')
     
         } else if(req.body.user == "pharm"){
             const pharm = new Pharm(req.body);
-            console.log(pharm);s
             await pharm.save();
+            req.session.userId = pharm._id;
+            req.session.authorized = true;
             res.redirect('/dashboard');
 
         } else if(req.body.user == "lab"){
             const lab = new Lab(req.body);
             await lab.save();
+            req.session.userId = lab._id;
+            req.session.authorized = true;
             res.redirect('/dashboard');
 
         }else{
@@ -42,3 +48,8 @@ exports.signupUser = async(req, res)=>{
     }
    
 }
+
+exports.findPatient = async(req, res)=>{
+
+}
+
